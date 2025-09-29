@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Contact • Utrera</title>
+
+  <!-- Bootstrap + Icons -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .page-hero {
+      background:#151515 url(images/4x/BG.png) center/cover no-repeat;
+      color:#fff; text-align:center; padding:120px 0 80px; position:relative;
+    }
+    .page-hero .overlay { position:absolute; inset:0; background:#111; opacity:.7; }
+    .page-hero .container { position:relative; z-index:1; }
+    .contact-card {
+      background:#0f0f0f; color:#fff; border-left:6px solid #1abc9c; padding:24px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,.25);
+      margin-bottom:24px;
+    }
+    .form-control, .form-control:focus { background:#141414; color:#fff; border-color:#333; }
+    .form-control::placeholder { color:#aaa; }
+    .contact-cta .btn { margin:6px; }
+  </style>
+</head>
+<body class="has-sticky">
+
+  <!-- Sticky header -->
+  <header class="site-header is-visible" role="navigation" aria-label="Primary">
+    <div class="container">
+      <div class="brand">
+        <a href="index.html" class="brand-link"><span class="brand-dot">●</span> Utrera</a>
+      </div>
+      <nav class="site-nav">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link" href="resume.html">Resume</a></li>
+          <li><a class="nav-link active" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="overlay"></div>
+    <div class="container">
+      <h1 style="margin:0 0 10px;">Contact</h1>
+      <p class="lead" style="opacity:.95;">Let’s build something meaningful together.</p>
+      <div class="contact-cta">
+        <a class="btn btn-cta" href="mailto:carljudeutrera301@gmail.com"><i class="fa fa-envelope"></i> Email Me</a>
+        <a class="btn btn-outline" href="resume.html"><i class="fa fa-file-text-o"></i> View Resume</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact content -->
+  <section class="section-primary">
+    <div class="container">
+      <div class="row">
+        <!-- Info -->
+        <div class="col-md-5">
+          <div class="contact-card">
+            <h3 style="margin-top:0;">Get in Touch</h3>
+            <p>For collaborations, design projects, or campus initiatives, feel free to reach out through any of these:</p>
+            <p><i class="fa fa-envelope"></i> <a href="mailto:carljudeutrera301@gmail.com">carljudeutrera301@gmail.com</a></p>
+            <p><i class="fa fa-linkedin"></i> <a href="https://www.linkedin.com/in/carljudeutrera/" target="_blank">LinkedIn</a></p>
+            <p><i class="fa fa-github"></i> <a href="https://github.com/Riritahsi" target="_blank">GitHub</a></p>
+            <p><i class="fa fa-facebook"></i> <a href="https://www.facebook.com/Riritashii/" target="_blank">Facebook</a></p>
+            <p><i class="fa fa-instagram"></i> <a href="https://www.instagram.com/riritashi/" target="_blank">Instagram</a></p>
+          </div>
+        </div>
+
+        <!-- Simple email form (mailto) -->
+        <div class="col-md-7">
+          <div class="contact-card">
+            <h3 style="margin-top:0;">Quick Message</h3>
+            <!-- Pure mailto-based form: constructs an email in the user's client -->
+            <form id="mailtoForm">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input id="name" class="form-control" type="text" placeholder="Juan Dela Cruz" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Your Email</label>
+                <input id="email" class="form-control" type="email" placeholder="you@example.com" required>
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input id="subject" class="form-control" type="text" placeholder="Project / Invitation / Inquiry" required>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" class="form-control" rows="6" placeholder="Tell me about your project or event..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-cta"><i class="fa fa-paper-plane"></i> Send via Email</button>
+              <a class="btn btn-outline" href="mailto:carljudeutrera301@gmail.com"><i class="fa fa-envelope-o"></i> Open Mail App</a>
+            </form>
+            <p style="margin-top:10px; opacity:.8;">Tip: If the button doesn’t open your mail app, use the “Open Mail App” link, or email me directly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4"><p>Design by: <a target="_blank" href="http://www.izzydoesizzy.com">Iskender Piyale-Sheard</a><br><a target="_blank" href="http://creativecommons.org/licenses/by/4.0/"><i class="fa fa-creative-commons"></i> Attribution 4.0 License</a></p></div>
+        <div class="col-md-4 text-center"></div>
+        <div class="col-md-4">
+          <div class="social-footer">
+            <a href="mailto:carljudeutrera301@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
+            <a href="https://www.facebook.com/Riritashii/" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="https://www.instagram.com/riritashi/" target="_blank"><i class="fa fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/carljudeutrera/" target="_blank"><i class="fa fa-linkedin"></i></a>
+            <a href="https://github.com/Riritahsi" target="_blank"><i class="fa fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS: build mailto URL from form fields -->
+  <script>
+    document.querySelectorAll('.site-nav .nav-link').forEach(a=>{
+      if (a.getAttribute('href') === 'contact.html') a.classList.add('active');
+    });
+
+    const form = document.getElementById('mailtoForm');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = encodeURIComponent(document.getElementById('name').value.trim());
+      const email = encodeURIComponent(document.getElementById('email').value.trim());
+      const subject = encodeURIComponent(document.getElementById('subject').value.trim());
+      const message = encodeURIComponent(document.getElementById('message').value.trim());
+
+      const body =
+        `From: ${decodeURIComponent(name)} <%3C${decodeURIComponent(email)}%3E>%0D%0A%0D%0A` +
+        `${decodeURIComponent(message)}%0D%0A%0D%0A` +
+        `---%0D%0ASent from the website contact form`;
+
+      window.location.href =
+        `mailto:carljudeutrera301@gmail.com?subject=${subject}&body=${body}`;
+    });
+  </script>
+</body>
+</html>

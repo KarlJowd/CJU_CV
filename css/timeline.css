@@ -37,7 +37,7 @@ body {
   background-size: cover;
   margin: 0;
   padding: 0;
-  font-family: helvetica, arial, tahoma, verdana;
+  font-family: "poppins";
   line-height: 20px;
   font-size: 14px;
   color: #726f77;
@@ -57,7 +57,7 @@ a {
 }
 
 h1, h2, h3, h4 {
-  font-family: "Dosis", arial, tahoma, verdana;
+  font-family: "poppins";
   font-weight: 500;
 }
 
@@ -77,7 +77,7 @@ header {
 header .logo {
   color: #1abc9c;
   float: left;
-  font-family: "Dosis", arial, tahoma, verdana;
+  font-family: "poppins";
   font-size: 22px;
   font-weight: 500;
 }
@@ -89,7 +89,7 @@ header .social {
   float: right;
 }
 header .social .btn {
-  font-family: "Dosis";
+  font-family: "poppins";
   font-size: 14px;
   margin: 10px 5px;
 }
