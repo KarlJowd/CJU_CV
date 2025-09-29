@@ -219,12 +219,12 @@ body.has-sticky section:first-of-type { /* no change for hero */
   font-weight: 600;
 }
 .btn-cta {
-  background: #016a4c;
+  background: #1abc9c;
   color: #0b0b0b !important;
   border: 2px solid #016a4c;
 }
 .btn-cta:hover {
-  background: #015b3c; border-color: #015b3c; color: #0b0b0b !important; opacity: 1;
+  background: #015b3c; border-color: #1abc9c; color: #ffffff !important; opacity: 1;
 }
 .btn-outline {
   background: transparent;
@@ -232,7 +232,7 @@ body.has-sticky section:first-of-type { /* no change for hero */
   border: 2px solid #fee944;
 }
 .btn-outline:hover {
-  background: #fee944; color: #0b0b0b !important; opacity: 1;
+  background: #fee944; color: #015b3c !important; opacity: 1;
 }
 
 /* EXTRAS
