@@ -454,7 +454,7 @@
         <div class="container-fluid d-flex justify-content-between align-items-center">
             <span class="navbar-brand mb-0">
                 <i class="bi bi-table"></i>
-                DataTables Pro
+                DataTables ni Carl Jude
             </span>
             <button class="theme-toggle" id="themeToggle">
                 <i class="bi bi-sun-fill" id="themeIcon"></i>
@@ -467,7 +467,6 @@
     <div class="main-container">
         <div class="text-center mb-5">
             <h1 class="page-title">Advanced DataTables Demo</h1>
-            <p class="page-subtitle">Interactive data management with powerful filtering and visualization</p>
         </div>
         
         <!-- Tab Navigation -->
@@ -732,9 +731,11 @@
                         infoFiltered: "(filtered from _MAX_ total entries)"
                     },
                     drawCallback: function() {
-                        // Move pagination to top
-                        var pagination = $(tableId + '_wrapper .dataTables_paginate').detach();
-                        $(paginationId).html(pagination);
+                        // Move pagination to top only if it's not already there
+                        if ($(paginationId).children('.dataTables_paginate').length === 0) {
+                            var pagination = $(tableId + '_wrapper .dataTables_paginate').detach();
+                            $(paginationId).html(pagination);
+                        }
                     },
                     initComplete: function() {
                         // Move length and info to custom locations
@@ -742,6 +743,10 @@
                         var info = $(tableId + '_wrapper .dataTables_info').detach();
                         $(lengthId).html(length);
                         $(infoId).html(info);
+                        
+                        // Move pagination to top initially
+                        var pagination = $(tableId + '_wrapper .dataTables_paginate').detach();
+                        $(paginationId).html(pagination);
                         
                         // Setup column search
                         this.api().columns().every(function() {
