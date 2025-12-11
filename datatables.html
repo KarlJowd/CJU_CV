@@ -13,88 +13,473 @@
     <link href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.bootstrap5.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/select/1.7.0/css/select.bootstrap5.min.css" rel="stylesheet">
     
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
     <style>
-        body {
-            padding: 20px;
-            background-color: #f8f9fa;
+        /* ==================== ROOT VARIABLES ==================== */
+        :root {
+            /* Dark Mode Colors (Default) */
+            --bg-primary: #0d0d0d;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #1f1f1f;
+            --bg-hover: #2a2a2a;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --text-muted: #707070;
+            --border-color: #333333;
+            --accent-gold: #f4b957;
+            --accent-gold-hover: #f5c66d;
+            --shadow-color: rgba(0, 0, 0, 0.5);
+            --danger-color: #dc3545;
+            --danger-hover: #c82333;
+            --success-color: #28a745;
         }
-        .container-fluid {
+        
+        /* Light Mode Colors */
+        body.light-mode {
+            --bg-primary: #f5f7fa;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --bg-hover: #f0f2f5;
+            --text-primary: #2c3e50;
+            --text-secondary: #5a6c7d;
+            --text-muted: #95a5a6;
+            --border-color: #e1e8ed;
+            --shadow-color: rgba(0, 0, 0, 0.08);
+        }
+        
+        /* ==================== GLOBAL STYLES ==================== */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        /* ==================== NAVBAR ==================== */
+        .navbar-custom {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+        
+        .navbar-brand {
+            color: var(--accent-gold) !important;
+            font-weight: 700;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .theme-toggle {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            color: var(--text-primary);
+            border-radius: 50px;
+            padding: 8px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+        
+        .theme-toggle:hover {
+            background: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(244, 185, 87, 0.4);
+        }
+        
+        /* ==================== MAIN CONTAINER ==================== */
+        .main-container {
             max-width: 1400px;
             margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px var(--shadow-color);
         }
+        
+        .page-title {
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #f5c66d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .page-subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+        
+        /* ==================== TABS ==================== */
+        .nav-tabs {
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+        
+        .nav-tabs .nav-link {
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: var(--text-secondary);
+            padding: 12px 24px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .nav-tabs .nav-link:hover {
+            color: var(--accent-gold);
+            background: var(--bg-hover);
+        }
+        
+        .nav-tabs .nav-link.active {
+            color: var(--accent-gold);
+            background: var(--bg-secondary);
+            border-bottom-color: var(--accent-gold);
+        }
+        
+        /* ==================== CARDS ==================== */
+        .card-custom {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px var(--shadow-color);
+        }
+        
+        .column-visibility {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .column-visibility strong {
+            color: var(--accent-gold);
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+        
+        .column-visibility label {
+            color: var(--text-primary);
+            margin-right: 20px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        
+        .column-visibility label:hover {
+            background: var(--bg-hover);
+        }
+        
+        .column-visibility input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--accent-gold);
+        }
+        
+        /* ==================== BUTTONS ==================== */
+        .btn-delete {
+            background: var(--danger-color);
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+        }
+        
+        .btn-delete:hover {
+            background: var(--danger-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(220, 53, 69, 0.4);
+        }
+        
+        /* ==================== DATATABLE STYLES ==================== */
         .dataTables_wrapper {
             position: relative;
+            color: var(--text-primary);
         }
+        
+        table.dataTable {
+            border-collapse: separate !important;
+            border-spacing: 0;
+            width: 100% !important;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px var(--shadow-color);
+        }
+        
+        table.dataTable thead th {
+            background: var(--bg-card);
+            color: var(--accent-gold);
+            font-weight: 700;
+            padding: 16px;
+            border-bottom: 2px solid var(--border-color);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+        
+        table.dataTable thead .column-search-row th {
+            background: var(--bg-secondary);
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        table.dataTable thead .column-search-row input {
+            width: 100%;
+            padding: 8px 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        table.dataTable thead .column-search-row input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(244, 185, 87, 0.1);
+        }
+        
+        table.dataTable thead .column-search-row input::placeholder {
+            color: var(--text-muted);
+        }
+        
+        table.dataTable tbody td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-primary);
+            background: var(--bg-secondary);
+        }
+        
+        table.dataTable tbody tr {
+            transition: all 0.2s ease;
+        }
+        
+        table.dataTable tbody tr:hover {
+            background: var(--bg-hover) !important;
+        }
+        
+        table.dataTable tbody tr.selected {
+            background: rgba(244, 185, 87, 0.2) !important;
+            border-left: 4px solid var(--accent-gold);
+        }
+        
+        table.dataTable.table-striped tbody tr:nth-of-type(odd) {
+            background: var(--bg-secondary);
+        }
+        
+        table.dataTable.table-striped tbody tr:nth-of-type(even) {
+            background: var(--bg-card);
+        }
+        
+        /* ==================== PAGINATION ==================== */
         .custom-layout-top {
             display: flex;
             justify-content: center;
             margin-bottom: 20px;
         }
+        
+        .dataTables_paginate {
+            padding: 12px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .dataTables_paginate .paginate_button {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary) !important;
+            padding: 8px 16px;
+            margin: 0 4px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .dataTables_paginate .paginate_button:hover {
+            background: var(--accent-gold) !important;
+            border-color: var(--accent-gold) !important;
+            color: #000 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(244, 185, 87, 0.3);
+        }
+        
+        .dataTables_paginate .paginate_button.current {
+            background: var(--accent-gold) !important;
+            border-color: var(--accent-gold) !important;
+            color: #000 !important;
+            box-shadow: 0 4px 12px rgba(244, 185, 87, 0.4);
+        }
+        
+        .dataTables_paginate .paginate_button.disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        
+        /* ==================== ENTRIES & INFO ==================== */
         .custom-layout-bottom {
             margin-top: 20px;
         }
+        
         .entries-info-container {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-        }
-        .dataTables_length {
-            margin-bottom: 0 !important;
-        }
-        .dataTables_info {
-            margin-top: 0 !important;
-        }
-        .column-search-row input {
-            width: 100%;
-            padding: 5px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        .column-visibility {
-            margin: 20px 0;
+            gap: 12px;
             padding: 15px;
-            background: #f8f9fa;
-            border-radius: 5px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
         }
-        .column-visibility label {
-            margin-right: 15px;
+        
+        .dataTables_length,
+        .dataTables_info {
+            color: var(--text-primary);
+            margin: 0;
+        }
+        
+        .dataTables_length label,
+        .dataTables_info {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        
+        .dataTables_length select {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 6px 12px;
+            border-radius: 6px;
+            margin: 0 8px;
             cursor: pointer;
+            font-weight: 600;
         }
-        .table-tabs {
-            margin-bottom: 20px;
+        
+        .dataTables_length select:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(244, 185, 87, 0.1);
         }
-        .btn-delete {
-            margin: 10px 0;
-        }
-        table.dataTable tbody tr.selected {
-            background-color: #b0bed9 !important;
-        }
-        thead input {
-            box-sizing: border-box;
-        }
+        
         .dataTables_filter {
             display: none !important;
+        }
+        
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 20px;
+            }
+            
+            .page-title {
+                font-size: 1.8rem;
+            }
+            
+            .navbar-custom {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .column-visibility label {
+                display: block;
+                margin-bottom: 10px;
+            }
+            
+            table.dataTable thead th,
+            table.dataTable tbody td {
+                padding: 10px;
+                font-size: 0.85rem;
+            }
+        }
+        
+        /* ==================== SCROLLBAR ==================== */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--bg-card);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-gold);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-gold-hover);
         }
     </style>
 </head>
 <body>
-    <div class="container-fluid">
-        <h1 class="mb-4 text-center">Advanced DataTables Demo</h1>
+    <!-- Navbar with Theme Toggle -->
+    <nav class="navbar navbar-custom">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <span class="navbar-brand mb-0">
+                <i class="bi bi-table"></i>
+                DataTables Pro
+            </span>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="bi bi-sun-fill" id="themeIcon"></i>
+                <span id="themeText">Light Mode</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <div class="text-center mb-5">
+            <h1 class="page-title">Advanced DataTables Demo</h1>
+            <p class="page-subtitle">Interactive data management with powerful filtering and visualization</p>
+        </div>
         
         <!-- Tab Navigation -->
-        <ul class="nav nav-tabs table-tabs" id="tableTabs" role="tablist">
+        <ul class="nav nav-tabs" id="tableTabs" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="table1-tab" data-bs-toggle="tab" data-bs-target="#table1" type="button" role="tab">
-                    Table View 1
+                    <i class="bi bi-table me-2"></i>Table View 1
                 </button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="table2-tab" data-bs-toggle="tab" data-bs-target="#table2" type="button" role="tab">
-                    Table View 2
+                    <i class="bi bi-table me-2"></i>Table View 2
                 </button>
             </li>
         </ul>
@@ -105,7 +490,7 @@
             <div class="tab-pane fade show active" id="table1" role="tabpanel">
                 <!-- Column Visibility Controls -->
                 <div class="column-visibility">
-                    <strong>Show/Hide Columns:</strong>
+                    <strong><i class="bi bi-eye me-2"></i>Column Visibility Controls</strong>
                     <div class="mt-2">
                         <label><input type="checkbox" class="toggle-vis" data-table="1" data-column="0" checked> ID</label>
                         <label><input type="checkbox" class="toggle-vis" data-table="1" data-column="1" checked> Name</label>
@@ -117,7 +502,9 @@
                     </div>
                 </div>
                 
-                <button class="btn btn-danger btn-delete" id="deleteBtn1">Delete Selected Row(s)</button>
+                <button class="btn btn-delete" id="deleteBtn1">
+                    <i class="bi bi-trash me-2"></i>Delete Selected Row(s)
+                </button>
                 
                 <!-- Custom Layout Top (Pagination) -->
                 <div class="custom-layout-top" id="pagination1-top"></div>
@@ -160,7 +547,7 @@
             <div class="tab-pane fade" id="table2" role="tabpanel">
                 <!-- Column Visibility Controls -->
                 <div class="column-visibility">
-                    <strong>Show/Hide Columns:</strong>
+                    <strong><i class="bi bi-eye me-2"></i>Column Visibility Controls</strong>
                     <div class="mt-2">
                         <label><input type="checkbox" class="toggle-vis" data-table="2" data-column="0" checked> ID</label>
                         <label><input type="checkbox" class="toggle-vis" data-table="2" data-column="1" checked> Name</label>
@@ -172,7 +559,9 @@
                     </div>
                 </div>
                 
-                <button class="btn btn-danger btn-delete" id="deleteBtn2">Delete Selected Row(s)</button>
+                <button class="btn btn-delete" id="deleteBtn2">
+                    <i class="bi bi-trash me-2"></i>Delete Selected Row(s)
+                </button>
                 
                 <!-- Custom Layout Top (Pagination) -->
                 <div class="custom-layout-top" id="pagination2-top"></div>
@@ -225,6 +614,37 @@
     <script src="https://cdn.datatables.net/select/1.7.0/js/dataTables.select.min.js"></script>
     
     <script>
+        // ==================== THEME TOGGLE FUNCTIONALITY ====================
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+        const body = document.body;
+        
+        // Check for saved theme preference or default to dark mode
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        if (currentTheme === 'light') {
+            body.classList.add('light-mode');
+            updateThemeButton(true);
+        }
+        
+        themeToggle.addEventListener('click', function() {
+            body.classList.toggle('light-mode');
+            const isLight = body.classList.contains('light-mode');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            updateThemeButton(isLight);
+        });
+        
+        function updateThemeButton(isLight) {
+            if (isLight) {
+                themeIcon.className = 'bi bi-moon-fill';
+                themeText.textContent = 'Dark Mode';
+            } else {
+                themeIcon.className = 'bi bi-sun-fill';
+                themeText.textContent = 'Light Mode';
+            }
+        }
+        
+        // ==================== DATATABLES INITIALIZATION ====================
         $(document).ready(function() {
             // Sample data that mimics AJAX response
             // In production, this would come from: ajax: 'https://your-api-endpoint.com/data'
