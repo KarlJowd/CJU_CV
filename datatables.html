@@ -313,13 +313,16 @@
             display: flex;
             justify-content: center;
             margin-bottom: 20px;
+            min-height: 50px;
         }
         
-        .dataTables_paginate {
+        .dataTables_wrapper .dataTables_paginate {
             padding: 12px;
             background: var(--bg-secondary);
             border-radius: 10px;
             border: 1px solid var(--border-color);
+            order: -1;
+            margin-bottom: 20px;
         }
         
         .dataTables_paginate .paginate_button {
@@ -505,21 +508,9 @@
                     <i class="bi bi-trash me-2"></i>Delete Selected Row(s)
                 </button>
                 
-                <!-- Custom Layout Top (Pagination) -->
-                <div class="custom-layout-top" id="pagination1-top"></div>
-                
                 <!-- DataTable 1 -->
                 <table id="dataTable1" class="table table-striped table-bordered" style="width:100%">
                     <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Nationality</th>
-                            <th>Salary</th>
-                        </tr>
                         <tr class="column-search-row">
                             <th><input type="text" placeholder="Search ID" /></th>
                             <th><input type="text" placeholder="Search Name" /></th>
@@ -562,21 +553,9 @@
                     <i class="bi bi-trash me-2"></i>Delete Selected Row(s)
                 </button>
                 
-                <!-- Custom Layout Top (Pagination) -->
-                <div class="custom-layout-top" id="pagination2-top"></div>
-                
                 <!-- DataTable 2 -->
                 <table id="dataTable2" class="table table-striped table-bordered" style="width:100%">
                     <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Nationality</th>
-                            <th>Salary</th>
-                        </tr>
                         <tr class="column-search-row">
                             <th><input type="text" placeholder="Search ID" /></th>
                             <th><input type="text" placeholder="Search Name" /></th>
@@ -710,18 +689,18 @@
                     // ajax: 'https://your-api-endpoint.com/data.json',
                     columns: [
                         { title: "ID" },
-                        { title: "Name" },
-                        { title: "Position" },
-                        { title: "Office" },
-                        { title: "Age" },
-                        { title: "Nationality" },
-                        { title: "Salary" }
+                        { title: "NAME" },
+                        { title: "POSITION" },
+                        { title: "OFFICE" },
+                        { title: "AGE" },
+                        { title: "NATIONALITY" },
+                        { title: "SALARY" }
                     ],
                     select: {
                         style: 'multi',
                         selector: 'td:not(:last-child)'
                     },
-                    dom: 'lrtip', // Remove default search box
+                    dom: 'plrtip', // p = pagination on top
                     pageLength: 10,
                     lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
                     language: {
@@ -730,13 +709,6 @@
                         infoEmpty: "Showing 0 to 0 of 0 entries",
                         infoFiltered: "(filtered from _MAX_ total entries)"
                     },
-                    drawCallback: function() {
-                        // Move pagination to top only if it's not already there
-                        if ($(paginationId).children('.dataTables_paginate').length === 0) {
-                            var pagination = $(tableId + '_wrapper .dataTables_paginate').detach();
-                            $(paginationId).html(pagination);
-                        }
-                    },
                     initComplete: function() {
                         // Move length and info to custom locations
                         var length = $(tableId + '_wrapper .dataTables_length').detach();
@@ -744,14 +716,10 @@
                         $(lengthId).html(length);
                         $(infoId).html(info);
                         
-                        // Move pagination to top initially
-                        var pagination = $(tableId + '_wrapper .dataTables_paginate').detach();
-                        $(paginationId).html(pagination);
-                        
-                        // Setup column search
+                        // Setup column search on the first (and only) header row
                         this.api().columns().every(function() {
                             var column = this;
-                            $('input', $(tableId + ' thead tr:eq(1) th').eq(column.index())).on('keyup change clear', function() {
+                            $('input', $(tableId + ' thead tr:eq(0) th').eq(column.index())).on('keyup change clear', function() {
                                 if (column.search() !== this.value) {
                                     column.search(this.value).draw();
                                 }
