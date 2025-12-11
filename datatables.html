@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced DataTables Demo</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- DataTables CSS -->
+    <link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.bootstrap5.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/select/1.7.0/css/select.bootstrap5.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container-fluid {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .dataTables_wrapper {
+            position: relative;
+        }
+        .custom-layout-top {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .custom-layout-bottom {
+            margin-top: 20px;
+        }
+        .entries-info-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .dataTables_length {
+            margin-bottom: 0 !important;
+        }
+        .dataTables_info {
+            margin-top: 0 !important;
+        }
+        .column-search-row input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .column-visibility {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        .column-visibility label {
+            margin-right: 15px;
+            cursor: pointer;
+        }
+        .table-tabs {
+            margin-bottom: 20px;
+        }
+        .btn-delete {
+            margin: 10px 0;
+        }
+        table.dataTable tbody tr.selected {
+            background-color: #b0bed9 !important;
+        }
+        thead input {
+            box-sizing: border-box;
+        }
+        .dataTables_filter {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <h1 class="mb-4 text-center">Advanced DataTables Demo</h1>
+        
+        <!-- Tab Navigation -->
+        <ul class="nav nav-tabs table-tabs" id="tableTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="table1-tab" data-bs-toggle="tab" data-bs-target="#table1" type="button" role="tab">
+                    Table View 1
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="table2-tab" data-bs-toggle="tab" data-bs-target="#table2" type="button" role="tab">
+                    Table View 2
+                </button>
+            </li>
+        </ul>
+        
+        <!-- Tab Content -->
+        <div class="tab-content" id="tableTabContent">
+            <!-- First Table Tab -->
+            <div class="tab-pane fade show active" id="table1" role="tabpanel">
+                <!-- Column Visibility Controls -->
+                <div class="column-visibility">
+                    <strong>Show/Hide Columns:</strong>
+                    <div class="mt-2">
+                        <label><input type="checkbox" class="toggle-vis" data-table="1" data-column="0" checked> ID</label>
+                        <label><input type="checkbox" class="toggle-vis" data-table="1" data-column="1" checked> Name</label>
+                        <label><input type="checkbox" class="toggle-vis" data-table="1" data-column="2" checked> Position</label>
+                        <label><input type="checkbox" class="toggle-vis" data-table="1" data-column="3" checked> Office</label>
+                        <label><input type="checkbox" class="toggle-vis" data-table="1" data-column="4" checked> Age</label>
+                        <label><input type="checkbox" class="toggle-vis" data-table="1" data-column="5" checked> Nationality</label>
+                        <label><input type="checkbox" class="toggle-vis" data-table="1" data-column="6" checked> Salary</label>
+                    </div>
+                </div>
+                
+                <button class="btn btn-danger btn-delete" id="deleteBtn1">Delete Selected Row(s)</button>
+                
+                <!-- Custom Layout Top (Pagination) -->
+                <div class="custom-layout-top" id="pagination1-top"></div>
+                
+                <!-- DataTable 1 -->
+                <table id="dataTable1" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Office</th>
+                            <th>Age</th>
+                            <th>Nationality</th>
+                            <th>Salary</th>
+                        </tr>
+                        <tr class="column-search-row">
+                            <th><input type="text" placeholder="Search ID" /></th>
+                            <th><input type="text" placeholder="Search Name" /></th>
+                            <th><input type="text" placeholder="Search Position" /></th>
+                            <th><input type="text" placeholder="Search Office" /></th>
+                            <th><input type="text" placeholder="Search Age" /></th>
+                            <th><input type="text" placeholder="Search Nationality" /></th>
+                            <th><input type="text" placeholder="Search Salary" /></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                
+                <!-- Custom Layout Bottom (Entries and Info) -->
+                <div class="custom-layout-bottom">
+                    <div class="entries-info-container">
+                        <div id="length1"></div>
+                        <div id="info1"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Second Table Tab -->
+            <div class="tab-pane fade" id="table2" role="tabpanel">
+                <!-- Column Visibility Controls -->
+                <div class="column-visibility">
+                    <strong>Show/Hide Columns:</strong>
+                    <div class="mt-2">
+                        <label><input type="checkbox" class="toggle-vis" data-table="2" data-column="0" checked> ID</label>
+                        <label><input type="checkbox" class="toggle-vis" data-table="2" data-column="1" checked> Name</label>
+                        <label><input type="checkbox" class="toggle-vis" data-table="2" data-column="2" checked> Position</label>
+                        <label><input type="checkbox" class="toggle-vis" data-table="2" data-column="3" checked> Office</label>
+                        <label><input type="checkbox" class="toggle-vis" data-table="2" data-column="4" checked> Age</label>
+                        <label><input type="checkbox" class="toggle-vis" data-table="2" data-column="5" checked> Nationality</label>
+                        <label><input type="checkbox" class="toggle-vis" data-table="2" data-column="6" checked> Salary</label>
+                    </div>
+                </div>
+                
+                <button class="btn btn-danger btn-delete" id="deleteBtn2">Delete Selected Row(s)</button>
+                
+                <!-- Custom Layout Top (Pagination) -->
+                <div class="custom-layout-top" id="pagination2-top"></div>
+                
+                <!-- DataTable 2 -->
+                <table id="dataTable2" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Office</th>
+                            <th>Age</th>
+                            <th>Nationality</th>
+                            <th>Salary</th>
+                        </tr>
+                        <tr class="column-search-row">
+                            <th><input type="text" placeholder="Search ID" /></th>
+                            <th><input type="text" placeholder="Search Name" /></th>
+                            <th><input type="text" placeholder="Search Position" /></th>
+                            <th><input type="text" placeholder="Search Office" /></th>
+                            <th><input type="text" placeholder="Search Age" /></th>
+                            <th><input type="text" placeholder="Search Nationality" /></th>
+                            <th><input type="text" placeholder="Search Salary" /></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                
+                <!-- Custom Layout Bottom (Entries and Info) -->
+                <div class="custom-layout-bottom">
+                    <div class="entries-info-container">
+                        <div id="length2"></div>
+                        <div id="info2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/select/1.7.0/js/dataTables.select.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Sample data that mimics AJAX response
+            // In production, this would come from: ajax: 'https://your-api-endpoint.com/data'
+            var sampleData = {
+                "data": [
+                    ["1", "Tiger Nixon", "System Architect", "Edinburgh", "61", "British", "$320,800"],
+                    ["2", "Garrett Winters", "Accountant", "Tokyo", "63", "American", "$170,750"],
+                    ["3", "Ashton Cox", "Junior Technical Author", "San Francisco", "66", "American", "$86,000"],
+                    ["4", "Cedric Kelly", "Senior Javascript Developer", "Edinburgh", "22", "British", "$433,060"],
+                    ["5", "Airi Satou", "Accountant", "Tokyo", "33", "Japanese", "$162,700"],
+                    ["6", "Brielle Williamson", "Integration Specialist", "New York", "61", "American", "$372,000"],
+                    ["7", "Herrod Chandler", "Sales Assistant", "San Francisco", "59", "American", "$137,500"],
+                    ["8", "Rhona Davidson", "Integration Specialist", "Tokyo", "55", "Canadian", "$327,900"],
+                    ["9", "Colleen Hurst", "Javascript Developer", "San Francisco", "39", "American", "$205,500"],
+                    ["10", "Sonya Frost", "Software Engineer", "Edinburgh", "23", "British", "$103,600"],
+                    ["11", "Jena Gaines", "Office Manager", "London", "30", "British", "$90,560"],
+                    ["12", "Quinn Flynn", "Support Lead", "Edinburgh", "22", "British", "$342,000"],
+                    ["13", "Charde Marshall", "Regional Director", "San Francisco", "36", "American", "$470,600"],
+                    ["14", "Haley Kennedy", "Senior Marketing Designer", "London", "43", "British", "$313,500"],
+                    ["15", "Tatyana Fitzpatrick", "Regional Director", "London", "19", "British", "$385,750"],
+                    ["16", "Michael Silva", "Marketing Designer", "London", "66", "Brazilian", "$198,500"],
+                    ["17", "Paul Byrd", "Chief Financial Officer", "New York", "64", "American", "$725,000"],
+                    ["18", "Gloria Little", "Systems Administrator", "New York", "59", "American", "$237,500"],
+                    ["19", "Bradley Greer", "Software Engineer", "London", "41", "British", "$132,000"],
+                    ["20", "Dai Rios", "Personnel Lead", "Edinburgh", "35", "Spanish", "$217,500"],
+                    ["21", "Jenette Caldwell", "Development Lead", "New York", "30", "American", "$345,000"],
+                    ["22", "Yuri Berry", "Chief Marketing Officer", "New York", "40", "Russian", "$675,000"],
+                    ["23", "Caesar Vance", "Pre-Sales Support", "New York", "21", "American", "$106,450"],
+                    ["24", "Doris Wilder", "Sales Assistant", "Sydney", "23", "Australian", "$85,600"],
+                    ["25", "Angelica Ramos", "Chief Executive Officer", "London", "47", "British", "$1,200,000"],
+                    ["26", "Gavin Joyce", "Developer", "Edinburgh", "42", "British", "$92,575"],
+                    ["27", "Jennifer Chang", "Regional Director", "Singapore", "28", "Singaporean", "$357,650"],
+                    ["28", "Brenden Wagner", "Software Engineer", "San Francisco", "28", "American", "$206,850"],
+                    ["29", "Fiona Green", "Chief Operating Officer", "San Francisco", "48", "American", "$850,000"],
+                    ["30", "Shou Itou", "Regional Marketing", "Tokyo", "20", "Japanese", "$163,000"],
+                    ["31", "Michelle House", "Integration Specialist", "Sydney", "37", "Australian", "$95,400"],
+                    ["32", "Suki Burks", "Developer", "London", "53", "British", "$114,500"],
+                    ["33", "Prescott Bartlett", "Technical Author", "London", "27", "British", "$145,000"],
+                    ["34", "Gavin Cortez", "Team Leader", "San Francisco", "22", "American", "$235,500"],
+                    ["35", "Martena Mccray", "Post-Sales support", "Edinburgh", "46", "British", "$324,050"],
+                    ["36", "Unity Butler", "Marketing Designer", "San Francisco", "47", "American", "$85,675"],
+                    ["37", "Howard Hatfield", "Office Manager", "San Francisco", "51", "American", "$164,500"],
+                    ["38", "Hope Fuentes", "Secretary", "San Francisco", "41", "American", "$109,850"],
+                    ["39", "Vivian Harrell", "Financial Controller", "San Francisco", "62", "American", "$452,500"],
+                    ["40", "Timothy Mooney", "Office Manager", "London", "37", "British", "$136,200"],
+                    ["41", "Jackson Bradshaw", "Director", "New York", "65", "American", "$645,750"],
+                    ["42", "Olivia Liang", "Support Engineer", "Singapore", "64", "Singaporean", "$234,500"],
+                    ["43", "Bruno Nash", "Software Engineer", "London", "38", "British", "$163,500"],
+                    ["44", "Sakura Yamamoto", "Support Engineer", "Tokyo", "37", "Japanese", "$139,575"],
+                    ["45", "Thor Walton", "Developer", "New York", "61", "American", "$98,540"],
+                    ["46", "Finn Camacho", "Support Engineer", "San Francisco", "47", "American", "$87,500"],
+                    ["47", "Serge Baldwin", "Data Coordinator", "Singapore", "64", "Singaporean", "$138,575"],
+                    ["48", "Zenaida Frank", "Software Engineer", "New York", "63", "American", "$125,250"],
+                    ["49", "Zorita Serrano", "Software Engineer", "San Francisco", "56", "American", "$115,000"],
+                    ["50", "Jennifer Acosta", "Junior Javascript Developer", "Edinburgh", "43", "British", "$75,650"]
+                ]
+            };
+            
+            // Function to initialize a DataTable
+            function initializeTable(tableId, lengthId, infoId, paginationId, deleteBtn) {
+                var table = $(tableId).DataTable({
+                    data: sampleData.data,
+                    // For actual AJAX, uncomment below and comment out 'data' above:
+                    // ajax: 'https://your-api-endpoint.com/data.json',
+                    columns: [
+                        { title: "ID" },
+                        { title: "Name" },
+                        { title: "Position" },
+                        { title: "Office" },
+                        { title: "Age" },
+                        { title: "Nationality" },
+                        { title: "Salary" }
+                    ],
+                    select: {
+                        style: 'multi',
+                        selector: 'td:not(:last-child)'
+                    },
+                    dom: 'lrtip', // Remove default search box
+                    pageLength: 10,
+                    lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                    language: {
+                        lengthMenu: "Show _MENU_ entries per page",
+                        info: "Showing _START_ to _END_ of _TOTAL_ entries",
+                        infoEmpty: "Showing 0 to 0 of 0 entries",
+                        infoFiltered: "(filtered from _MAX_ total entries)"
+                    },
+                    drawCallback: function() {
+                        // Move pagination to top
+                        var pagination = $(tableId + '_wrapper .dataTables_paginate').detach();
+                        $(paginationId).html(pagination);
+                    },
+                    initComplete: function() {
+                        // Move length and info to custom locations
+                        var length = $(tableId + '_wrapper .dataTables_length').detach();
+                        var info = $(tableId + '_wrapper .dataTables_info').detach();
+                        $(lengthId).html(length);
+                        $(infoId).html(info);
+                        
+                        // Setup column search
+                        this.api().columns().every(function() {
+                            var column = this;
+                            $('input', $(tableId + ' thead tr:eq(1) th').eq(column.index())).on('keyup change clear', function() {
+                                if (column.search() !== this.value) {
+                                    column.search(this.value).draw();
+                                }
+                            });
+                        });
+                    }
+                });
+                
+                // Delete selected rows
+                $(deleteBtn).on('click', function() {
+                    var selectedRows = table.rows('.selected');
+                    if (selectedRows.count() > 0) {
+                        if (confirm('Are you sure you want to delete ' + selectedRows.count() + ' row(s)?')) {
+                            selectedRows.remove().draw();
+                        }
+                    } else {
+                        alert('Please select at least one row to delete.');
+                    }
+                });
+                
+                return table;
+            }
+            
+            // Initialize both tables
+            var table1 = initializeTable('#dataTable1', '#length1', '#info1', '#pagination1-top', '#deleteBtn1');
+            var table2 = initializeTable('#dataTable2', '#length2', '#info2', '#pagination2-top', '#deleteBtn2');
+            
+            // Column visibility toggle
+            $('.toggle-vis').on('change', function() {
+                var tableNum = $(this).data('table');
+                var column = $(this).data('column');
+                var table = (tableNum == 1) ? table1 : table2;
+                
+                // Toggle column visibility
+                var col = table.column(column);
+                col.visible($(this).is(':checked'));
+            });
+            
+            // Handle tab switching - redraw tables to fix layout
+            $('button[data-bs-toggle="tab"]').on('shown.bs.tab', function(e) {
+                $.fn.dataTable.tables({ visible: true, api: true }).columns.adjust();
+            });
+        });
+    </script>
+</body>
+</html>
