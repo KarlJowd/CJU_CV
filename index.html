@@ -1,238 +1,1088 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta content="width=device-width, initial-scale=1" name="viewport">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <link rel="icon" href="../../favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vCard - Personal Portfolio</title>
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
 
-  <title>Utrera CV</title>
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
 
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <!-- FontAwesome Icon Font -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <!-- LinearIcons Icon Font -->
-  <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-  <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
-  <!-- Timeline CSS -->
-  <link rel="stylesheet" href="css/timeline.css">
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <!-- STICKY HEADER (hidden on Intro, shows from About onward) -->
-  <header class="site-header" id="siteHeader" role="navigation" aria-label="Primary">
-    <div class="container">
-      <div class="brand">
-        <a href="index.html" class="brand-link">
-          <span class="brand-dot">●</span> CARL JUDE UTRERA 
-        </a>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="assets/new images/DP.png" alt="Carl Jude Utrera">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Carl Jude Utrera">Carl Jude Utrera</h1>
+
+          <p class="title">IT Student</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
       </div>
-      <nav class="site-nav">
-        <ul class="nav-list">
-          <li><a class="nav-link" href="resume.html">Resume</a></li>
-          <li><a class="nav-link" href="contact.html">Contact</a></li>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+
+              <a href="mailto:work.carljudeutrera@gmail.com" class="contact-link">work.carljudeutrera@gmail.com</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+
+              <a href="tel:+639164042466" class="contact-link">+63 916 404 2466</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Birthday</p>
+
+              <time datetime="2004-05-06">May 06, 2004</time>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+
+              <address>General Santos City, Philippines</address>
+            </div>
+
+          </li>
+
         </ul>
+
+        <div class="separator"></div>
+
+        <!-- Update the href values to your actual profiles. Example placeholders provided. -->
+        <ul class="social-list">
+
+          <li class="social-item">
+            <a href="https://www.facebook.com/Riritashii" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://www.linkedin.com/in/carljudeutrera/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://www.instagram.com/riritashi/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </aside>
+
+
+
+
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <button class="navbar-link  active" data-nav-link>About</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Resume</button>
+          </li>
+
+          <!-- <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Portfolio</button>
+          </li>
+
+           Blog nav removed as it's not relevant -->
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Contact</button>
+          </li>
+
+        </ul>
+
       </nav>
-    </div>
-  </header>
 
-  <!-- INTRO SECTION -->
-  <section class="section-image">
-    <div class="img-overlay"></div>
-    <div class="intro">
-      <div class="row">
-        <div class="col-md-12">
-          <h5>Hi there</h5>
-          <h1>I'm Carl Jude</h1>
-          <p class="intro-desc">
-            <span>Graphic Designer</span>
-            <span class="colour-splash">•</span>
-            <span>Volunteer</span>
-            <span class="colour-splash"></span>
+
+
+
+
+      <!--
+        - #ABOUT
+      -->
+
+      <article class="about  active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">About me</h2>
+        </header>
+
+        <section class="about-text">
+          <p>
+            Hi! I’m Carl Jude Utrera, a passionate and driven BS Information Technology student 
+            from Mindanao State University – General Santos. With a strong foundation in leadership, 
+            multimedia communications, and organizational management, I’ve spent the last few years 
+            honing my skills across digital design, event coordination, and technical support.
           </p>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <div class="social">
-            <a href="mailto: carljudeutrera301@gmail.com" target="_blank"><i class="fa fa-envelope fa-3x"></i></a>
-            <a href="https://www.facebook.com/Riritashii/" target="_blank"><i class="fa fa-facebook fa-3x"></i></a>
-            <a href="https://www.instagram.com/riritashi/" target="_blank"><i class="fa fa-instagram fa-3x"></i></a>
-            <a href="https://www.linkedin.com/in/carljudeutrera/" target="_blank"><i class="fa fa-linkedin fa-3x"></i></a>
-            <a href="https://github.com/Riritahsi" target="_blank"><i class="fa fa-github fa-3x"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="bottom">
-        <a href="#about" class="skip-intro" aria-label="Scroll to About">
-          <div class="mouse-icon"><div class="scroll"></div></div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT SECTION -->
-  <section class="section-primary" id="about">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3 text-center">
-          <img class="profilepic" src="https://pbs.twimg.com/profile_images/641063961144750081/IqosL0KD.jpg" alt="Profile picture of Carl Jude">
-          <h2>About Me</h2>
-          <hr>
-          <p class="lead">
-            Results-driven BS Information Technology student at Mindanao State University - General Santos
-            with a strong background in <span>leadership, event management, and digital communications.</span>
-            Demonstrates proven success in <span>student organizations, organizing large-scale events, and delivering technical tasks.</span>
-            Skilled in <span>production, social media management, and graphic designing.</span>
-            Passionate about community impact and promoting active citizenship.
+          <p>
+            I currently serve as a student leader in multiple university organizations, where I manage 
+            social media pages, lead technical committees, and help plan and execute large-scale academic 
+            and community events. From creating multimedia materials for university-wide ceremonies to 
+            managing communication between student bodies and administrators, I’ve developed a sharp eye 
+            for detail and a reliable, organized work ethic.
           </p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- SKILLS SECTION -->
-  <section class="section-image" id="skills">
-    <div class="img-overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 section-heading">
-          <h2>My Passions and Interests</h2>
-          <p class="lead">What keeps me going</p>
-          <hr>
-        </div>
-      </div>
+          <p>
+            Beyond leadership, I am knowledgeable in graphic design, content creation, and marketing support.
+            I use tools like Canva, Adobe Illustrator, and Meta Business Suite to craft engaging 
+            content for a variety of audiences. I’ve also worked with CRM tools, performed data entry tasks, 
+            and built systems using SQL, Python, and foundational web technologies.
+        </section>
 
-      <div class="row">
-        <div class="col-md-4 text-center">
-          <span class="lnr lnr-laptop" style="color: #fee944;"></span>
-          <h2>Graphic Design</h2>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-            standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-            type specimen book.</p>
-        </div>
 
-        <div class="col-md-4 text-center">
-          <span class="lnr lnr-heart" style="color: #fee944;"></span>
-          <h2>Volunteering</h2>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-            standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-            type specimen book.</p>
-        </div>
+        <!--
+          - service
+        -->
 
-        <div class="col-md-4 text-center">
-          <span class="lnr lnr-users" style="color: #fee944;"></span>
-          <h2>Leadership</h2>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-            standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-            type specimen book.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <section class="service">
 
-  <!-- HIRE ME SECTION (new) -->
-  <section class="section-primary hireme" id="hireme">
-    <div class="container">
-      <div class="row vcenter">
-        <div class="col-md-7">
-          <h2>Hire Me</h2>
-          <hr class="hire-hr">
-          <p class="lead">
-            Need a versatile creative with strong leadership and production skills?
-            I design, organize, and deliver—on brand and on time.
-          </p>
-          <ul class="hire-points">
-            <li><i class="fa fa-check"></i> Branding & Layouts</li>
-            <li><i class="fa fa-check"></i> Social Media & Content</li>
-            <li><i class="fa fa-check"></i> Event Creatives & Production</li>
+          <h3 class="h3 service-title">What i'm doing</h3>
+
+          <ul class="service-list">
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="assets/new images/volunteer_activism_24dp_FFCA66_FILL0_wght400_GRAD0_opsz24.svg
+                " alt="Volunteering icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Volunteering</h4>
+
+                <p class="service-item-text">
+                  The most modern and high-quality design made at a professional level.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="assets/new images/gavel_24dp_FFCA66_FILL0_wght400_GRAD0_opsz24.svg" alt="Leadership icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Leadership</h4>
+                <p class="service-item-text">
+                  High-quality development of sites at the professional level.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="assets/new images/design_services_24dp_FFCA66_FILL0_wght400_GRAD0_opsz24.svg" alt="design icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Design</h4>
+
+                <p class="service-item-text">
+                  Professional development of applications for iOS and Android.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="assets/new images/event_24dp_FFCA66_FILL0_wght400_GRAD0_opsz24.svg" alt="event icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Event Management</h4>
+
+                <p class="service-item-text">
+                  I make high-quality photos of any category at a professional level.
+                </p>
+              </div>
+
+            </li>
+
           </ul>
-        </div>
-        <div class="col-md-5 text-center">
-          <a class="btn btn-cta" href="mailto:carljudeutrera301@gmail.com">
-            <i class="fa fa-envelope"></i> Contact Me
-          </a>
-          <a class="btn btn-outline" href="resume.html">
-            <i class="fa fa-file-text-o"></i> Resume
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  
-  <!-- FOOTER SECTION -->
-  <footer class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4"><p>Design by: <a target="_blank" href="http://www.izzydoesizzy.com">Iskender Piyale-Sheard</a><br><a target="_blank" href="http://creativecommons.org/licenses/by/4.0/"><i class="fa fa-creative-commons"></i> Attribution 4.0 License</a></p></div>
-        <div class="col-md-4 text-center"></div>
-        <div class="col-md-4">
-          <div class="social-footer">
-            <a href="mailto: carljudeutrera301@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
-            <a href="https://www.facebook.com/Riritashii/" target="_blank"><i class="fa fa-facebook"></i></a>
-            <a href="https://www.instagram.com/riritashi/" target="_blank"><i class="fa fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/carljudeutrera/" target="_blank"><i class="fa fa-linkedin"></i></a>
-            <a href="https://github.com/Riritahsi" target="_blank"><i class="fa fa-github"></i></a>
+        </section>
+
+        <!--
+          - clients
+        -->
+
+        <section class="clients">
+
+          <h3 class="h3 clients-title">Clients/Collaborations</h3>
+
+          <ul class="clients-list has-scrollbar">
+
+            <li class="clients-item">
+              <img src="assets/new images/msu logo.png" alt="MSU client logo">
+            </li>
+
+            <li class="clients-item">
+              <img src="assets/new images/SBPS-removebg-preview.png" alt="SBPS client logo">
+            </li>
+
+            <li class="clients-item">
+              <img src="assets/new images/ANBS.png" alt="ANBS client logo">
+            </li>
+
+            <li class="clients-item">
+              <img src="assets/new images/SSC.png" alt="SSC client logo">
+            </li>
+
+            <li class="clients-item">
+              <img src="assets/new images/CNSM.png" alt="CNSM client logo">
+            </li>
+
+            <li class="clients-item">
+              <img src="assets/new images/ITPhysics.png" alt="ITPhysics client logo">
+            </li>
+
+            <li class="clients-item">
+              <img src="assets/new images/jits logo.png" alt="JITS client logo">
+            </li>
+
+          </ul>
+
+        </section>
+
+        <!-- Certifications placeholder removed and moved into Resume -->
+
+      </article>
+
+      <!--
+        - #RESUME
+      -->
+
+      <article class="resume" data-page="resume">
+
+        <header>
+          <h2 class="h2 article-title">Resume</h2>
+        </header>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Education</h3>
           </div>
-        </div>
-      </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Mindanao State University - General Santos</h4>
+
+              <span>2022 - Present
+
+              <p class="timeline-text">
+                4th Year | Bachelor of Science in Information Technology 
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">General Santos City SPED Integrated School</h4>
+
+              <span>Senior High School</span>
+              <span>2020 - 2022</span>
+
+              <p class="timeline-text">
+                Graduated with High Honors | Strand: STEM (Science, Technology, Engineering, and Mathematics)
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">General Santos City SPED Integrated School</h4>
+
+              <span>Junior High School</span>
+              <span>2016 - 2020</span>
+
+              <p class="timeline-text">
+                Graduated with Honors
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Leadership Experience</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Senator</h4>
+              <h4 class="h4 timeline-item-title">Supreme Student Council - MSU-GenSan</h4>
+
+              <span>May 2025 - Present</span>
+
+              <p class="timeline-text">
+                Elected at-large as a senator of the Supreme Student Council at Mindanao State University - 
+                General Santos, representing and serving a student body of approximately 11,000.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Batch President</h4>
+              <h4 class="h4 timeline-item-title">Alliance of Guardians for Oceans Sustainability (AGOS)</h4>
+
+              <span>May 2025 - Present</span>
+
+              <p class="timeline-text">
+                A youth-led organization operating under the Protected Area Management Bureau (PAMB), a sub-bureau of
+                the Department of Environment and Natural Resources (DENR) Region 12, focusing on marine conservation
+                and sustainable development.
+
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Social Media Manager</h4>
+              <h4 class="h4 timeline-item-title">Junior Information Technology Society & IT and Physics Department</h4>
+
+              <span>Aug 2023 - Present</span>
+
+              <p class="timeline-text">
+                I manage and create digital content for organizational social media platforms, helping increase student
+                engagement and departmental visibility.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">President</h4>
+              <h4 class="h4 timeline-item-title">Junior Information Technology Society</h4>
+
+              <span>Aug 2024 - May 2025</span>
+
+              <p class="timeline-text">
+                The official departmental organization of the BS Information Technology students. 
+                As president, I lead the organization in planning events, coordinating with faculty, 
+                and representing the student body.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Ex-Officio Member</h4>
+              <h4 class="h4 timeline-item-title">Organization of Mathematics and Natural Sciences Students, MSU-GenSan</h4>
+
+              <span>Aug 2024 - May 2025</span>
+
+              <p class="timeline-text">
+                I served as the official voice of the entire Information Technology student body within the college
+                organization, contributing to the creation and implementation of meaningful projects and initiatives aimed at
+                student development and engagement.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Vice-Presiden</h4>
+              <h4 class="h4 timeline-item-title">Junior Information Technology Society</h4>
+
+              <span>Aug 2023 - May 2024</span>
+
+              <p class="timeline-text">
+                As vice-president, I oversaw programs to engage members and coordinated logistics for various local
+                technology events
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="skill">
+
+          <h3 class="h3 skills-title">My skills</h3>
+
+          <ul class="skills-list content-card columns">
+            <li class="skills-item">
+              <h4 class="skill-title">Communication</h4>
+            </li>
+            <li class="skills-item">
+              <h4 class="skill-title">Adaptable</h4>
+            </li>
+            <li class="skills-item">
+              <h4 class="skill-title">Time Management</h4>
+            </li>
+            <li class="skills-item">
+              <h4 class="skill-title">Leadership</h4>
+            </li>
+            <li class="skills-item">
+              <h4 class="skill-title">Programming</h4>
+              <ul class="skill-sublist">
+                <li>Python</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>SQL</li>
+              </ul>
+            </li>
+            <li class="skills-item">
+              <h4 class="skill-title">Tools &amp; Platforms</h4>
+              <ul class="skill-sublist">
+                <li>Microsoft Office</li>
+                <li>Adobe Illustrator</li>
+                <li>Canva</li>
+              </ul>
+            </li>
+          </ul>
+
+        </section>
+
+        <!--
+          - #CERTIFICATIONS (inside Resume)
+        -->
+
+        <section class="certifications">
+
+          <h3 class="h3 certifications-title">Certifications</h3>
+
+          <ul class="cert-list content-card">
+
+            <li class="cert-item">
+              <a class="cert-link" href="https://cert.efset.org/He6fh6" target="_blank" rel="noopener noreferrer">
+                <span>EF SET English Certificate 75/100 (C2 Proficient)</span>
+                <ion-icon name="open-outline"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+      <!--
+        - #PORTFOLIO
+      -->
+
+      <article class="portfolio" data-page="portfolio">
+
+        <header>
+          <h2 class="h2 article-title">Portfolio</h2>
+        </header>
+
+        <section class="projects">
+
+          <ul class="filter-list">
+
+            <li class="filter-item">
+              <button class="active" data-filter-btn>All</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Web design</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Applications</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Web development</button>
+            </li>
+
+          </ul>
+
+          <div class="filter-select-box">
+
+            <button class="filter-select" data-select>
+
+              <div class="select-value" data-selecct-value>Select category</div>
+
+              <div class="select-icon">
+                <ion-icon name="chevron-down"></ion-icon>
+              </div>
+
+            </button>
+
+            <ul class="select-list">
+
+              <li class="select-item">
+                <button data-select-item>All</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Web design</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Applications</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Web development</button>
+              </li>
+
+            </ul>
+
+          </div>
+
+          <ul class="project-list">
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-1.jpg" alt="finance" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Finance</h3>
+
+                <p class="project-category">Web development</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-2.png" alt="orizon" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Orizon</h3>
+
+                <p class="project-category">Web development</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web design">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-3.jpg" alt="fundo" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Fundo</h3>
+
+                <p class="project-category">Web design</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="applications">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-4.png" alt="brawlhalla" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Brawlhalla</h3>
+
+                <p class="project-category">Applications</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web design">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-5.png" alt="dsm." loading="lazy">
+                </figure>
+
+                <h3 class="project-title">DSM.</h3>
+
+                <p class="project-category">Web design</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web design">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-6.png" alt="metaspark" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">MetaSpark</h3>
+
+                <p class="project-category">Web design</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-7.png" alt="summary" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Summary</h3>
+
+                <p class="project-category">Web development</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="applications">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-8.jpg" alt="task manager" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Task Manager</h3>
+
+                <p class="project-category">Applications</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-9.png" alt="arrival" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Arrival</h3>
+
+                <p class="project-category">Web development</p>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #BLOG
+      -->
+
+      <article class="blog" data-page="blog">
+
+        <header>
+          <h2 class="h2 article-title">Blog</h2>
+        </header>
+
+        <section class="blog-posts">
+
+          <ul class="blog-posts-list">
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Design conferences in 2022</h3>
+
+                  <p class="blog-text">
+                    Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-2.jpg" alt="Best fonts every designer" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Best fonts every designer</h3>
+
+                  <p class="blog-text">
+                    Sed ut perspiciatis, nam libero tempore, cum soluta nobis est eligendi.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-3.jpg" alt="Design digest #80" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Design digest #80</h3>
+
+                  <p class="blog-text">
+                    Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis suscipit.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-4.jpg" alt="UI interactions of the week" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">UI interactions of the week</h3>
+
+                  <p class="blog-text">
+                    Enim ad minim veniam, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-5.jpg" alt="The forgotten art of spacing" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">The forgotten art of spacing</h3>
+
+                  <p class="blog-text">
+                    Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-6.jpg" alt="Design digest #79" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Design digest #79</h3>
+
+                  <p class="blog-text">
+                    Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #CONTACT
+      -->
+
+      <article class="contact" data-page="contact">
+
+        <header>
+          <h2 class="h2 article-title">Contact</h2>
+        </header>
+
+        <section class="mapbox" data-mapbox>
+          <figure>
+            <!--
+              The previous short maps.app.goo.gl URL doesn't work in an embed iframe.
+              Use Google Maps 'Share' -> 'Embed a map' option and paste the "src" value.
+              Example: embed a searchable location (General Santos City) using the q= parameter:
+            -->
+            <iframe
+              src="https://www.google.com/maps?q=General+Santos+City,+Philippines&output=embed"
+              width="400" height="300" loading="lazy"></iframe>
+          </figure>
+        </section>
+
+        <section class="contact-form">
+
+          <h3 class="h3 form-title">Contact Form</h3>
+
+          <!-- To receive emails at your address: sign up for Formspree (https://formspree.io), copy the form endpoint, and set it as the form 'action' value. Example: action="https://formspree.io/f/<your_id>" method="POST" -->
+          <form action="https://formspree.io/f/mblvzkor" method="POST" class="form" data-form>
+
+            <div class="input-wrapper">
+              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+
+              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+            </div>
+
+            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+
+            <button class="form-btn" type="submit" disabled data-form-btn>
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>Send Message</span>
+            </button>
+
+          </form>
+
+        </section>
+
+      </article>
+
     </div>
-  </footer>
 
-  <!-- JS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script>
-    window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\\/script>');
-  </script>
-  <script src="js/bootstrap.min.js"></script>
+  </main>
 
-  <!-- Sticky header reveal logic -->
-  <script>
-    (function() {
-      var header = document.getElementById('siteHeader');
-      var intro = document.querySelector('.section-image'); // The Intro section
 
-      // Use IntersectionObserver to hide header only when Intro is in view
-      if ('IntersectionObserver' in window) {
-        var io = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-              // Intro is visible: hide header
-              header.classList.remove('is-visible');
-              document.body.classList.remove('has-sticky');
-            } else {
-              // Intro not visible: show header
-              header.classList.add('is-visible');
-              document.body.classList.add('has-sticky');
-            }
-          });
-        }, { threshold: 0.01 });
-        io.observe(intro);
-      } else {
-        // Fallback for very old browsers
-        function onScroll() {
-          var introBottom = intro.getBoundingClientRect().bottom;
-          if (introBottom > 0) {
-            // Intro is (partially) visible
-            header.classList.remove('is-visible');
-            document.body.classList.remove('has-sticky');
-          } else {
-            // Intro is not visible
-            header.classList.add('is-visible');
-            document.body.classList.add('has-sticky');
-          }
-        }
-        window.addEventListener('scroll', onScroll);
-        onScroll();
-      }
-    })();
-  </script>
+
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </body>
+
 </html>
